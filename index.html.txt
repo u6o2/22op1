@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لعبة الأسئلة</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="landing-page">
+        <div class="title">
+            <h1>مرحبًا في لعبة الأسئلة</h1>
+            <p>هل يمكنك إكمال جميع الحلقات الـ100؟</p>
+            <button id="start-btn">ابدأ اللعبة</button>
+        </div>
+    </div>
+
+    <div class="game-container hidden">
+        <div class="question-box">
+            <p id="question-text">السؤال سيظهر هنا</p>
+            <div class="timer">
+                <p id="timer-text">30</p>
+            </div>
+        </div>
+        <div class="options">
+            <button class="option" id="option-1">الإجابة 1</button>
+            <button class="option" id="option-2">الإجابة 2</button>
+            <button class="option" id="option-3">الإجابة 3</button>
+            <button class="option" id="option-4">الإجابة 4</button>
+        </div>
+        <div class="video-ad">
+            <p>لم تجب؟ شاهد الفيديو للانتقال للسؤال التالي!</p>
+            <button id="watch-ad">شاهد الفيديو</button>
+        </div>
+        <div class="progress">
+            <p>الحلقة: <span id="episode">1</span> | المرحلة: <span id="level">1</span>/10</p>
+            <div class="progress-bar">
+                <div id="progress" class="progress-indicator"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
