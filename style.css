@@ -1,0 +1,424 @@
+/* إعدادات عامة */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --primary: #4a6fa5;
+    --secondary: #166088;
+    --accent: #17a2b8;
+    --light: #f8f9fa;
+    --dark: #343a40;
+    --success: #28a745;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --gray: #6c757d;
+    --border-radius: 8px;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    background-color: #f5f7fb;
+    color: var(--dark);
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* العنوان */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* البطاقات */
+.card {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+    color: var(--secondary);
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #eee;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
+}
+
+/* زر الرفع */
+.upload-area {
+    border: 3px dashed var(--primary);
+    border-radius: var(--border-radius);
+    padding: 40px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    background-color: rgba(74, 111, 165, 0.05);
+}
+
+.upload-area:hover {
+    background-color: rgba(74, 111, 165, 0.1);
+    border-color: var(--secondary);
+}
+
+.upload-area i {
+    font-size: 4rem;
+    color: var(--primary);
+    margin-bottom: 15px;
+}
+
+.upload-area p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: var(--dark);
+}
+
+.file-info {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: rgba(22, 96, 136, 0.1);
+    border-radius: var(--border-radius);
+    display: none;
+}
+
+.file-info.show {
+    display: block;
+}
+
+.file-info p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+}
+
+.file-info i {
+    color: var(--success);
+}
+
+/* الأزرار */
+.btn {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn:hover {
+    background-color: var(--secondary);
+    transform: translateY(-2px);
+}
+
+.generate-btn {
+    background-color: var(--accent);
+    font-size: 1.1rem;
+    padding: 15px 30px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.generate-btn:hover {
+    background-color: #138496;
+}
+
+/* عرض PDF */
+.pdf-viewer {
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+#pdfViewer {
+    height: 400px;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+    padding: 20px;
+    text-align: center;
+}
+
+#pdfViewer canvas {
+    max-width: 100%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.viewer-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f1f1f1;
+    border-top: 1px solid #ddd;
+}
+
+.viewer-controls span {
+    font-weight: 600;
+    color: var(--dark);
+}
+
+/* إعدادات الأسئلة */
+.settings {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.setting-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.setting-group label {
+    font-weight: 600;
+    color: var(--secondary);
+}
+
+.range-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+input[type="range"] {
+    flex-grow: 1;
+    height: 8px;
+    border-radius: 4px;
+    background: #e0e0e0;
+    outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--primary);
+    cursor: pointer;
+}
+
+#questionCount {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--primary);
+    min-width: 30px;
+    text-align: center;
+}
+
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 5px;
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--primary);
+}
+
+select {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    background-color: white;
+    color: var(--dark);
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+select:focus {
+    border-color: var(--primary);
+}
+
+/* منطقة النتائج */
+.questions-info {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(22, 96, 136, 0.08);
+    padding: 15px;
+    border-radius: var(--border-radius);
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.questions-info p {
+    color: var(--secondary);
+}
+
+.questions-container {
+    min-height: 200px;
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: var(--border-radius);
+    background-color: #fdfdfd;
+}
+
+.placeholder {
+    text-align: center;
+    color: var(--gray);
+    font-style: italic;
+    padding: 40px 0;
+}
+
+.question-item {
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: var(--border-radius);
+    background-color: white;
+    border-left: 4px solid var(--primary);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.question-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.question-number {
+    background-color: var(--primary);
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.question-type {
+    background-color: var(--accent);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.question-text {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+.options-container {
+    padding-right: 20px;
+}
+
+.option {
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    background-color: #f8f9fa;
+    border-radius: var(--border-radius);
+    border: 1px solid #e9ecef;
+}
+
+.correct {
+    background-color: rgba(40, 167, 69, 0.15);
+    border-color: rgba(40, 167, 69, 0.3);
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    color: var(--gray);
+    border-top: 1px solid #eee;
+}
+
+/* تصميم متجاوب */
+@media (min-width: 768px) {
+    .content-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+    }
+}
+
+@media (max-width: 767px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .content-section {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+    
+    .actions {
+        flex-direction: column;
+    }
+    
+    .btn {
+        width: 100%;
+    }
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منشئ الأسئلة من المحاضرات</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-brain"></i> منشئ الأسئلة التعليمية من المحاضرات</h1>
+            <p>قم بتحميل محاضراتك بصيغة PDF وأنشئ أسئلة اختبارية منها</p>
+        </header>
+
+        <div class="main-content">
+            <div class="upload-section card">
+                <h2><i class="fas fa-cloud-upload-alt"></i> تحميل المحاضرة</h2>
+                <div class="upload-area" id="uploadArea">
+                    <i class="fas fa-file-pdf"></i>
+                    <p>اسحب وأفلت ملف PDF هنا أو انقر للاختيار</p>
+                    <input type="file" id="pdfInput" accept=".pdf" hidden>
+                    <button class="btn" id="selectFileBtn">اختر ملف PDF</button>
+                </div>
+                <div class="file-info" id="fileInfo"></div>
+            </div>
+
+            <div class="content-section">
+                <div class="card">
+                    <h2><i class="fas fa-book-open"></i> محتوى المحاضرة</h2>
+                    <div class="pdf-viewer">
+                        <div id="pdfViewer"></div>
+                        <div class="viewer-controls">
+                            <button class="btn" id="prevPage"><i class="fas fa-chevron-right"></i> السابق</button>
+                            <span id="pageInfo">الصفحة: <span id="currentPage">1</span> / <span id="totalPages">1</span></span>
+                            <button class="btn" id="nextPage">التالي <i class="fas fa-chevron-left"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2><i class="fas fa-cogs"></i> إعدادات توليد الأسئلة</h2>
+                    <div class="settings">
+                        <div class="setting-group">
+                            <label for="numQuestions">عدد الأسئلة المطلوبة:</label>
+                            <div class="range-container">
+                                <input type="range" id="numQuestions" min="1" max="20" value="5">
+                                <span id="questionCount">5</span>
+                            </div>
+                        </div>
+                        
+                        <div class="setting-group">
+                            <label for="questionTypes">أنواع الأسئلة:</label>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="questionType" value="multiple" checked> اختيار من متعدد</label>
+                                <label><input type="checkbox" name="questionType" value="truefalse"> صح/خطأ</label>
+                                <label><input type="checkbox" name="questionType" value="short"> إجابة قصيرة</label>
+                            </div>
+                        </div>
+                        
+                        <div class="setting-group">
+                            <label for="difficulty">مستوى الصعوبة:</label>
+                            <select id="difficulty">
+                                <option value="easy">سهل</option>
+                                <option value="medium" selected>متوسط</option>
+                                <option value="hard">صعب</option>
+                            </select>
+                        </div>
+                        
+                        <button class="btn generate-btn" id="generateBtn">
+                            <i class="fas fa-magic"></i> أنشئ الأسئلة
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card results-section">
+                <h2><i class="fas fa-list-check"></i> الأسئلة المولدة</h2>
+                <div class="questions-info">
+                    <p>عدد الأسئلة المتاحة: <span id="availableQuestions">0</span></p>
+                    <p>الأسئلة المولدة: <span id="generatedCount">0</span> من <span id="maxQuestions">0</span></p>
+                </div>
+                <div class="questions-container" id="questionsContainer">
+                    <p class="placeholder">سيتم عرض الأسئلة هنا بعد إنشائها</p>
+                </div>
+                <div class="actions">
+                    <button class="btn" id="exportBtn" disabled>
+                        <i class="fas fa-download"></i> تصدير الأسئلة
+                    </button>
+                    <button class="btn" id="resetBtn">
+                        <i class="fas fa-redo"></i> إعادة تعيين
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>استخدام تقنيات الذكاء الاصطناعي لتوليد اسئلة من خلال رفع ملفات PDF 
+جميع الحقوق محفوظة @llxq2</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
